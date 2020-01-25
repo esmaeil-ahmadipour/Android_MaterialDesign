@@ -1,8 +1,27 @@
 <resources>
+
     <string name="app_name">Android_MaterialDesign</string>
+    <string name="app_title">Material Drawer</string>
+    <!-- Activity Component's -->
     <string name="main_txt">Material Design</string>
     <string name="main_rdBtn_activity1">Activity 1</string>
     <string name="main_rdBtn_activity2">Activity 2</string>
     <string name="main_btn">Switch Activity</string>
+    <!-- Navigation Drawer Items -->
+    <string name="nav_inbox">Inbox</string>
+    <string name="nav_starred">Starred</string>
+    <string name="nav_sent_email">Sent Email</string>
+    <string name="nav_drafts">Drafts</string>
+    <string name="nav_sub_header">Sub Header</string>
+    <string name="nav_all_email">All Email</string>
+    <string name="nav_trash">Trash</string>
+    <string name="nav_spam">Spam</string>
+    <!--String Use In View's -->
+    <string name="nav_header_name">sea2fun</string>
+    <string name="nav_header_email">sea2fun@gmail.com</string>
+    <string name="open_drawer">open</string>
+    <string name="close_drawer">close</string>
+    <!--String Use In Toast's -->
+    <string name="toast_select_item">Please , Select One Item</string>
 
 </resources>
