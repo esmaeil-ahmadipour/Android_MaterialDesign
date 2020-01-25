@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Default Colors-->
+    <color name="colorPrimary">#a20026</color>
+    <color name="colorPrimaryDark">#6c0000</color>
+    <color name="colorAccent">#ff8c00</color>
+
+    <!--Customized Colors-->
+    <!--Primary-->
+    <color name="primaryColor">#a20026</color>
+    <color name="onPrimaryTextColor">#ffffff</color>
+    <color name="primaryDarkColor">#6c0000</color>
+    <!--Secondary-->
+    <color name="secondaryColor">#ff8c00</color>
+    <color name="onSecondaryTextColor">#000000</color>
+    <color name="secondaryDarkColor">#c55d00</color>
+    <!--Background-->
+    <color name="backgroundColor">#e1e2e1</color>
+    <color name="onBackgroundTextColor">#000000</color>
+    <!--Surface-->
+    <color name="surfaceColor">#f5f5f6</color>
+    <color name="onSurfaceTextColor">#000000</color>
+    <!--ErrorText-->
+    <color name="errorColor">#607d8b</color>
+    <color name="onErrorTextColor">#002555</color>
+    <!--Classic-->
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTransparent">#0000FFFF</color>
+
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Android_MaterialDesign</string>
+    <string name="main_txt">Material Design</string>
+    <string name="main_rdBtn_activity1">Activity 1</string>
+    <string name="main_rdBtn_activity2">Activity 2</string>
+    <string name="main_btn">Switch Activity</string>
+
+</resources>
