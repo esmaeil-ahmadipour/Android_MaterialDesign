@@ -34,6 +34,8 @@ public class TwoActivity extends AppCompatActivity {
         viewPagerAdapter.addItems(new IosFragment(), getResources().getString(R.string.tab_title_ios));
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_android);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_ios);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

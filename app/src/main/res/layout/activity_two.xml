@@ -21,6 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ac_two_toolbar"
         app:tabGravity="fill"
+        app:tabIconTint="@color/colorWhite"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/secondaryColor"
         app:tabTextColor="@color/colorWhite">
