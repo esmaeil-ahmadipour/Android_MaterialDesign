@@ -16,6 +16,7 @@
         android:background="?android:attr/windowBackground"
         android:layout_width="0dp"
         android:elevation="4dp"
+        app:labelVisibilityMode="unlabeled"
         app:menu="@menu/bottom_nav_menu"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

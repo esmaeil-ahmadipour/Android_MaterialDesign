@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import ir.ea2.android_materialdesign.bottom_navigation.HomeFragment;
 import ir.ea2.android_materialdesign.bottom_navigation.SearchFragment;
 import ir.ea2.android_materialdesign.bottom_navigation.SettingsFragment;
-import ir.ea2.android_materialdesign.bottom_navigation.Test;
 
 public class FourActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -47,8 +46,6 @@ public class FourActivity extends AppCompatActivity {
                         Toast.makeText(FourActivity.this, getResources().getString(R.string.nav_home), Toast.LENGTH_SHORT)
                                 .show();
                         loadFragments(new HomeFragment());
-                        System.out.println(new Test(5));
-
                         return true;
                     }
                     case R.id.bottom_nav_search: {
