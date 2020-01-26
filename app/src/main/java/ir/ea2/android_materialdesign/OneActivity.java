@@ -5,12 +5,14 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.IdRes;
@@ -27,14 +29,14 @@ public class OneActivity extends AppCompatActivity implements NavigationView.OnN
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar mainToolbar;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_drawer);
         context = this;
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-        {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.TRANSPARENT);
@@ -43,7 +45,17 @@ public class OneActivity extends AppCompatActivity implements NavigationView.OnN
         setupToolbar();
         setViews();
         setupNavigationView();
+        setupListeners();
+    }
 
+    private void setupListeners() {
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, getResources().getString(R.string.app_title), Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
     }
 
 
@@ -56,6 +68,7 @@ public class OneActivity extends AppCompatActivity implements NavigationView.OnN
 
 
     private void setViews() {
+        fab = findViewById(R.id.ac_one_fab);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, mainToolbar, R.string.open_drawer, R.string.close_drawer);
@@ -96,7 +109,8 @@ public class OneActivity extends AppCompatActivity implements NavigationView.OnN
                 Toast.makeText(this, R.string.nav_spam, Toast.LENGTH_SHORT).show();
                 break;
             default:
-                Toast.makeText(context, getResources().getString(R.string.toast_select_item), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, getResources().getString(R.string.toast_select_item), Toast.LENGTH_SHORT)
+                        .show();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
