@@ -26,5 +26,6 @@
 
     <!--String Use In Toast's -->
     <string name="toast_select_item">Please , Select One Item</string>
+    <string name="main_rdBtn_activity3">Activity 3</string>
 
 </resources>
