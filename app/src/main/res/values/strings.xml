@@ -28,8 +28,11 @@
     <string name="tab_title_ios">IOS</string>
     <string name="main_rdBtn_activity3">Activity 3</string>
     <string name="main_rdBtn_activity4">Activity 4</string>
+
     <!--String Use In Toast's -->
     <string name="toast_select_item">Please , Select One Item</string>
+    <string name="toast_retry_action">Action Failed ! Please Retry Action</string>
+    <string name="snackbar_btn_retry">Retry</string>
 
 
 </resources>

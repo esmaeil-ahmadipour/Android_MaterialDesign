@@ -14,12 +14,14 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -30,6 +32,10 @@ public class OneActivity extends AppCompatActivity implements NavigationView.OnN
     private NavigationView navigationView;
     private Toolbar mainToolbar;
     private FloatingActionButton fab;
+    private CoordinatorLayout coordinatorLayout;
+    private Snackbar snackbar;
+    private View snackbarView;
+    private TextView snakbarTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +54,29 @@ public class OneActivity extends AppCompatActivity implements NavigationView.OnN
         setupListeners();
     }
 
+    private void setupSnackbar() {
+        snackbar = Snackbar.make(coordinatorLayout, getResources().getString(R.string.toast_retry_action), Snackbar.LENGTH_INDEFINITE);
+        snackbar.setDuration(6000);
+        snackbar.setAction(getResources().getString(R.string.snackbar_btn_retry), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, getResources().getString(R.string.toast_retry_action), Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
+        snackbar.setActionTextColor(getResources().getColor(R.color.colorWhite));
+        snackbarView = snackbar.getView();
+        snackbarView.setBackgroundColor(getResources().getColor(R.color.errorColor));
+        snakbarTextView = snackbarView.findViewById(com.google.android.material.R.id.snackbar_text);
+        snakbarTextView.setTextColor(getResources().getColor(R.color.primaryColor));
+    }
+
     private void setupListeners() {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, getResources().getString(R.string.app_title), Toast.LENGTH_SHORT)
-                        .show();
+                setupSnackbar();
+                snackbar.show();
             }
         });
     }
@@ -68,6 +91,7 @@ public class OneActivity extends AppCompatActivity implements NavigationView.OnN
 
 
     private void setViews() {
+        coordinatorLayout = findViewById(R.id.ac_one_root_element);
         fab = findViewById(R.id.ac_one_fab);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
