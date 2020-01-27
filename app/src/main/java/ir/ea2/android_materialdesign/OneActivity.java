@@ -4,17 +4,22 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
@@ -36,6 +41,10 @@ public class OneActivity extends AppCompatActivity implements NavigationView.OnN
     private Snackbar snackbar;
     private View snackbarView;
     private TextView snakbarTextView;
+    private ProgressBar circularProgressBar;
+    private ProgressBar linearProgressBar;
+    private Timer timer;
+    private int timerNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +59,36 @@ public class OneActivity extends AppCompatActivity implements NavigationView.OnN
 
         setupToolbar();
         setViews();
+        setupProgressbar();
         setupNavigationView();
         setupListeners();
+    }
+
+    private void setupProgressbar() {
+        linearProgressBar = findViewById(R.id.ac_one_progressBarLinear);
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if (timerNumber <= 100) {
+                   linearProgressBar.setProgress(timerNumber);
+                   timerNumber++;
+                   linearProgressBar.setSecondaryProgress(timerNumber+15);
+
+                }else{
+                    timer.cancel();
+                }
+            }
+        }, 2000, 1000);
+
+        circularProgressBar = findViewById(R.id.ac_one_progressBar);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                circularProgressBar.setVisibility(View.GONE);
+            }
+        }, 5000);
     }
 
     private void setupSnackbar() {
