@@ -17,9 +17,9 @@ import androidx.appcompat.widget.Toolbar;
 
 public class FiveActivity extends AppCompatActivity {
     private Toolbar toolbar;
-    private AlertDialog alertDialogDiscard, alertDialogConfirmation, alertDialogMultiOptions;
-    private AlertDialog.Builder builderDiscard, builderConfirmation, builderMultiOptions;
-    private Button btnDiscard, btnConfirmation, btnMultiOptions;
+    private AlertDialog alertDialogDiscard, alertDialogConfirmation, alertDialogMultiOptions,alertDialogSetItem;
+    private AlertDialog.Builder builderDiscard, builderConfirmation, builderMultiOptions,builderSetItem;
+    private Button btnDiscard, btnConfirmation, btnMultiOptions,btnSetItem;
     private String[] playersList = {"Daei", "Messi", "Salah", "CR7"};
     Context context = this;
     private List<String> selectedPlayers = new ArrayList<>();
@@ -35,10 +35,17 @@ public class FiveActivity extends AppCompatActivity {
         setupAlertDialogDiscard();
         setupAlertDialogConfirmation();
         setupAlertDialogMultiOptions();
+        setupAlertDialogSetItem();
 
     }
 
     private void setupListeners() {
+        btnSetItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAlertDialogSetItem();
+            }
+        });
         btnMultiOptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -176,8 +183,28 @@ public class FiveActivity extends AppCompatActivity {
     private void showAlertDialogMultiOptions() {
         alertDialogMultiOptions.show();
     }
+    private void setupAlertDialogSetItem() {
+        builderSetItem = new AlertDialog.Builder(context);
+        builderSetItem.setTitle(getResources().getString(R.string.alert_btn_confirmation_title));
+        builderSetItem.setItems(playersList, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(context, playersList[which], Toast.LENGTH_SHORT).show();
+            }
+        });
+        //Set Negative Button
+        alertDialogSetItem = builderSetItem.create();
+        //Tap any Where Not Dismiss AlertDialog , Just on AlertDialogsButtons .
+        alertDialogSetItem.setCancelable(false);
+
+    }
+
+    private void showAlertDialogSetItem() {
+        alertDialogSetItem.show();
+    }
 
     private void setupViews() {
+        btnSetItem = findViewById(R.id.ac_five_btn_set_item);
         btnDiscard = findViewById(R.id.ac_five_btn_discard);
         btnConfirmation = findViewById(R.id.ac_five_btn_confirmation);
         btnMultiOptions = findViewById(R.id.ac_five_btn_multi_options);
