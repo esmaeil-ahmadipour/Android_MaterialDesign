@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -17,13 +20,13 @@ import androidx.appcompat.widget.Toolbar;
 
 public class FiveActivity extends AppCompatActivity {
     private Toolbar toolbar;
-    private AlertDialog alertDialogDiscard, alertDialogConfirmation, alertDialogMultiOptions,alertDialogSetItem;
-    private AlertDialog.Builder builderDiscard, builderConfirmation, builderMultiOptions,builderSetItem;
-    private Button btnDiscard, btnConfirmation, btnMultiOptions,btnSetItem;
+    private AlertDialog alertDialogDiscard, alertDialogConfirmation, alertDialogMultiOptions, alertDialogSetItem, alertDialogCustomDialog;
+    private AlertDialog.Builder builderDiscard, builderConfirmation, builderMultiOptions, builderSetItem, builderCustomDialog;
+    private Button btnDiscard, btnConfirmation, btnMultiOptions, btnSetItem, btnCustomDialog;
     private String[] playersList = {"Daei", "Messi", "Salah", "CR7"};
     Context context = this;
     private List<String> selectedPlayers = new ArrayList<>();
-    private String selectedPlayersString="";
+    private String selectedPlayersString = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +39,17 @@ public class FiveActivity extends AppCompatActivity {
         setupAlertDialogConfirmation();
         setupAlertDialogMultiOptions();
         setupAlertDialogSetItem();
-
+        setupAlertDialogCustomDialog();
     }
 
     private void setupListeners() {
+        btnCustomDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAlertDialogCustomDialog();
+            }
+        });
+
         btnSetItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,7 +152,7 @@ public class FiveActivity extends AppCompatActivity {
                 if (isChecked) {
                     selectedPlayers.add(playersList[which]);
                 } else {
-                    if(selectedPlayers.contains(playersList[which])){
+                    if (selectedPlayers.contains(playersList[which])) {
                         selectedPlayers.remove(selectedPlayers.indexOf(playersList[which]));
                     }
                 }
@@ -153,14 +163,13 @@ public class FiveActivity extends AppCompatActivity {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if(selectedPlayers.size()>0){
+                if (selectedPlayers.size() > 0) {
                     for (String selectedPlayer : selectedPlayers) {
-                        selectedPlayersString+=(selectedPlayer+" ");
+                        selectedPlayersString += (selectedPlayer + " ");
                     }
                     Toast.makeText(context, selectedPlayersString, Toast.LENGTH_SHORT).show();
-                    selectedPlayersString="";
-                }
-                else{
+                    selectedPlayersString = "";
+                } else {
                     Toast.makeText(context, selectedPlayersString, Toast.LENGTH_SHORT).show();
                 }
 
@@ -183,6 +192,7 @@ public class FiveActivity extends AppCompatActivity {
     private void showAlertDialogMultiOptions() {
         alertDialogMultiOptions.show();
     }
+
     private void setupAlertDialogSetItem() {
         builderSetItem = new AlertDialog.Builder(context);
         builderSetItem.setTitle(getResources().getString(R.string.alert_btn_confirmation_title));
@@ -192,7 +202,6 @@ public class FiveActivity extends AppCompatActivity {
                 Toast.makeText(context, playersList[which], Toast.LENGTH_SHORT).show();
             }
         });
-        //Set Negative Button
         alertDialogSetItem = builderSetItem.create();
         //Tap any Where Not Dismiss AlertDialog , Just on AlertDialogsButtons .
         alertDialogSetItem.setCancelable(false);
@@ -203,7 +212,47 @@ public class FiveActivity extends AppCompatActivity {
         alertDialogSetItem.show();
     }
 
+    private void setupAlertDialogCustomDialog() {
+        builderCustomDialog = new AlertDialog.Builder(context);
+//Another  Customized AlertDialog With Style ;
+//        builderCustomDialog = new AlertDialog.Builder(context , R.style.AlertDialogTheme);
+// in Continue : Do Comment extraSetupCustomDialog() in showAlertDialogCustomDialog()
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.dialog_iamge_layout, null, false);
+        builderCustomDialog.setView(view);
+        builderCustomDialog.setNeutralButton(getResources().getString(R.string.alert_pBtn_confirmation), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builderCustomDialog.setTitle(getResources().getString(R.string.alert_btn_confirmation_title));
+
+        alertDialogCustomDialog = builderCustomDialog.create();
+        //Tap any Where Not Dismiss AlertDialog , Just on AlertDialogsButtons .
+        alertDialogCustomDialog.setCancelable(true);
+
+    }
+
+    private void showAlertDialogCustomDialog() {
+        alertDialogCustomDialog.show();
+        extraSetupCustomDialog();
+    }
+
+    private void extraSetupCustomDialog() {
+        Button button = alertDialogCustomDialog.getButton(AlertDialog.BUTTON_NEUTRAL);
+        button.setBackgroundColor(getResources().getColor(R.color.secondaryColor));
+        button.setTextColor(getResources().getColor(R.color.onSecondaryTextColor));
+        //By Casting GetAccess To NaturalButton;
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) button.getLayoutParams();
+        layoutParams.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        layoutParams.gravity= Gravity.CENTER;
+        //Changes On LayoutParamsOfButton And Set Layout To NaturalButton ;
+        button.setLayoutParams(layoutParams);
+    }
+
     private void setupViews() {
+        btnCustomDialog = findViewById(R.id.ac_five_btn_custom_dialog);
         btnSetItem = findViewById(R.id.ac_five_btn_set_item);
         btnDiscard = findViewById(R.id.ac_five_btn_discard);
         btnConfirmation = findViewById(R.id.ac_five_btn_confirmation);

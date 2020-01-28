@@ -32,6 +32,7 @@
     <string name="alert_btn_confirmation_title">Confirmation</string>
     <string name="alert_btn_multi_options_title">Multi Options</string>
     <string name="alert_btn_set_item_title">Set Item</string>
+    <string name="alert_btn_custom_dialog_title">Custom Dialog</string>
     <string name="alert_pBtn_discard">Discard</string>
     <string name="alert_nBtn_discard">Cancel</string>
     <string name="alert_pBtn_confirmation">Confirm</string>
