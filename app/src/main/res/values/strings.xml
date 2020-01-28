@@ -28,11 +28,22 @@
     <string name="tab_title_ios">IOS</string>
     <string name="main_rdBtn_activity3">Activity 3</string>
     <string name="main_rdBtn_activity4">Activity 4</string>
+    <string name="alert_btn_discard_title">Discard Draft</string>
+    <string name="alert_btn_confirmation_title">Confirmation</string>
+    <string name="alert_pBtn_discard">Discard</string>
+    <string name="alert_nBtn_discard">Cancel</string>
+    <string name="alert_pBtn_confirmation">Confirm</string>
+    <string name="alert_nBtn_confirmation">Cancel</string>
 
     <!--String Use In Toast's -->
     <string name="toast_select_item">Please , Select One Item</string>
     <string name="toast_retry_action">Action Failed ! Please Retry Action</string>
     <string name="snackbar_btn_retry">Retry</string>
+    <string name="main_rdBtn_activity5">Activity 5</string>
+    <string name="alert_message_discard">Discard Draft ?</string>
+    <string name="alert_successfully_discard">Discard Successfully</string>
+    <string name="alert_failed_discard">Discard Failed</string>
+    <string name="alert_message_confirmation">Select The Player.</string>
 
 
 </resources>
