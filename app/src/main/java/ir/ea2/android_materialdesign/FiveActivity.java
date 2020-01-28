@@ -8,20 +8,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class FiveActivity extends AppCompatActivity {
     private Toolbar toolbar;
-    private AlertDialog alertDialogDiscard;
-    private AlertDialog.Builder builderDiscard;
-    private AlertDialog alertDialogConfirmation;
-    private AlertDialog.Builder builderConfirmation;
-    private Button btnDiscard;
-    private Button btnConfirmation;
-    private String[] playersList = {"None", "Messi", "Salah", "CR7"};
+    private AlertDialog alertDialogDiscard, alertDialogConfirmation, alertDialogMultiOptions;
+    private AlertDialog.Builder builderDiscard, builderConfirmation, builderMultiOptions;
+    private Button btnDiscard, btnConfirmation, btnMultiOptions;
+    private String[] playersList = {"Daei", "Messi", "Salah", "CR7"};
     Context context = this;
+    private List<String> selectedPlayers = new ArrayList<>();
+    private String selectedPlayersString="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +34,18 @@ public class FiveActivity extends AppCompatActivity {
         setupListeners();
         setupAlertDialogDiscard();
         setupAlertDialogConfirmation();
+        setupAlertDialogMultiOptions();
 
     }
 
     private void setupListeners() {
+        btnMultiOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAlertDialogMultiOptions();
+            }
+        });
+
         btnConfirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,14 +74,16 @@ public class FiveActivity extends AppCompatActivity {
         builderConfirmation.setPositiveButton(getResources().getString(R.string.alert_pBtn_confirmation), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(context, (playersList[which+1]+" is "+getResources().getString(R.string.alert_pBtn_confirmation)), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, (playersList[which + 1] + " is " + getResources().getString(R.string.alert_pBtn_confirmation)), Toast.LENGTH_SHORT)
+                        .show();
             }
         });
         //Set Negative Button
         builderConfirmation.setNegativeButton(getResources().getString(R.string.alert_nBtn_confirmation), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(context, getResources().getString(R.string.alert_nBtn_confirmation), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, getResources().getString(R.string.alert_nBtn_confirmation), Toast.LENGTH_SHORT)
+                        .show();
             }
         });
         alertDialogConfirmation = builderConfirmation.create();
@@ -113,9 +125,63 @@ public class FiveActivity extends AppCompatActivity {
         alertDialogDiscard.show();
     }
 
+    private void setupAlertDialogMultiOptions() {
+        builderMultiOptions = new AlertDialog.Builder(context);
+        builderMultiOptions.setTitle(getResources().getString(R.string.alert_btn_confirmation_title));
+        builderMultiOptions.setMultiChoiceItems(playersList, null, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+                if (isChecked) {
+                    selectedPlayers.add(playersList[which]);
+                } else {
+                    if(selectedPlayers.contains(playersList[which])){
+                        selectedPlayers.remove(selectedPlayers.indexOf(playersList[which]));
+                    }
+                }
+            }
+        });
+        //Set Positive Button
+        builderMultiOptions.setPositiveButton(getResources().getString(R.string.alert_pBtn_confirmation), new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(selectedPlayers.size()>0){
+                    for (String selectedPlayer : selectedPlayers) {
+                        selectedPlayersString+=(selectedPlayer+" ");
+                    }
+                    Toast.makeText(context, selectedPlayersString, Toast.LENGTH_SHORT).show();
+                    selectedPlayersString="";
+                }
+                else{
+                    Toast.makeText(context, selectedPlayersString, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        })
+                .setNegativeButton(getResources().getString(R.string.alert_nBtn_confirmation), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(context, getResources().getString(R.string.alert_nBtn_confirmation), Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                });
+        //Set Negative Button
+        alertDialogMultiOptions = builderMultiOptions.create();
+        //Tap any Where Not Dismiss AlertDialog , Just on AlertDialogsButtons .
+        alertDialogMultiOptions.setCancelable(false);
+
+    }
+
+    private void showAlertDialogMultiOptions() {
+        alertDialogMultiOptions.show();
+    }
+
     private void setupViews() {
         btnDiscard = findViewById(R.id.ac_five_btn_discard);
         btnConfirmation = findViewById(R.id.ac_five_btn_confirmation);
+        btnMultiOptions = findViewById(R.id.ac_five_btn_multi_options);
+
     }
 
     private void setupToolbar() {
@@ -124,3 +190,8 @@ public class FiveActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 }
+
+
+
+
+
