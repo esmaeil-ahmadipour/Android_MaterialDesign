@@ -12,6 +12,12 @@
 
     <requestFocus />
 
+    <include
+        android:id="@+id/ac_four_toolbar"
+        layout="@layout/main_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ac_six_username_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -57,5 +63,24 @@
             android:hint="@string/password_hint_default"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ac_six_btn_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_signup"
+        app:iconPadding="8dp"
+        app:rippleColor="@color/primaryDarkColor"
+        android:background="@color/secondaryColor"
+        app:strokeColor="@color/primaryDarkColor"
+        app:strokeWidth="1dp"
+        android:layout_marginTop="32dp"
+        app:cornerRadius="16dp"
+        android:text="@string/ac_six_signup_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ac_six_password_layout"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

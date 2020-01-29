@@ -43,6 +43,7 @@
     <string name="username_hint_default">Username</string>
     <string name="password_error_default">* Required Field</string>
     <string name="username_error_default">* Required Field</string>
+    <string name="ac_six_signup_title">SIGN UP</string>
 
     <!--String Use In Toast's -->
     <string name="toast_select_item">Please , Select One Item</string>
