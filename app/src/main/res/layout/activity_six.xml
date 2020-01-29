@@ -14,13 +14,16 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ac_six_username_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
-        app:errorTextAppearance="@style/ErrorTextAppearanceStyle"
-        app:counterOverflowTextAppearance="@style/ErrorTextAppearanceStyle"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:theme="@style/TextInputLayoutTheme"
         app:counterEnabled="true"
         app:counterMaxLength="8"
+        app:counterOverflowTextAppearance="@style/ErrorTextAppearanceStyle"
+        app:errorTextAppearance="@style/ErrorTextAppearanceStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,8 +39,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ac_six_password_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:theme="@style/TextInputLayoutTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
