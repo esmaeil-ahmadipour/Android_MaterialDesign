@@ -64,33 +64,95 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
+        android:scrollbars="none"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ac_six_password_layout">
-<com.google.android.material.chip.Chip
-    android:id="@+id/ac_six_chip_female"
-    android:layout_width="wrap_content"
-    app:chipIcon="@drawable/human_female"
-    app:chipIconTint="@color/colorBlack"
-    app:rippleColor="@color/secondaryColor"
-    android:checkable="true"
-    android:clickable="true"
-    app:closeIconEnabled="true"
-    android:layout_gravity="center"
-    android:text="@string/ac_six_chip_female"
-    app:chipStrokeWidth="1dp"
-    app:chipStrokeColor="@color/colorBlack"
-    android:textColor="@color/colorBlack"
-    android:layout_marginHorizontal="16dp"
-    android:layout_height="wrap_content"/>
-    </LinearLayout>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipgroup"
+            app:singleSelection="true"
+            app:chipSpacingHorizontal="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:singleLine="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/ac_six_chip_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:text="@string/ac_six_chip_female"
+                android:textColor="@color/colorBlack"
+                app:chipIcon="@drawable/human_female"
+                app:chipIconTint="@color/colorBlack"
+                app:chipStrokeColor="@color/colorBlack"
+                app:chipStrokeWidth="1dp"
+                app:closeIconEnabled="true"
+                app:rippleColor="@color/secondaryColor" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/ac_six_chip_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:text="@string/ac_six_chip_male"
+                android:textColor="@color/colorBlack"
+                app:chipIcon="@drawable/human_male"
+                app:chipIconTint="@color/colorBlack"
+                app:chipStrokeColor="@color/colorBlack"
+                app:chipStrokeWidth="1dp"
+                app:closeIconEnabled="true"
+                app:rippleColor="@color/secondaryColor" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/ac_six_chip_female2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:text="@string/ac_six_chip_female"
+                android:textColor="@color/colorBlack"
+                app:chipIcon="@drawable/human_female"
+                app:chipIconTint="@color/colorBlack"
+                app:chipStrokeColor="@color/colorBlack"
+                app:chipStrokeWidth="1dp"
+                app:closeIconEnabled="true"
+                app:rippleColor="@color/secondaryColor" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/ac_six_chip_male2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:text="@string/ac_six_chip_male"
+                android:textColor="@color/colorBlack"
+                app:chipIcon="@drawable/human_male"
+                app:chipIconTint="@color/colorBlack"
+                app:chipStrokeColor="@color/colorBlack"
+                app:chipStrokeWidth="1dp"
+                app:closeIconEnabled="true"
+                app:rippleColor="@color/secondaryColor" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/ac_six_btn_signup"
@@ -105,7 +167,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
         app:layout_constraintVertical_bias="0.0"
         app:rippleColor="@color/primaryDarkColor"
         app:strokeColor="@color/primaryDarkColor"
