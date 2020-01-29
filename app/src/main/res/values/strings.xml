@@ -44,6 +44,8 @@
     <string name="password_error_default">* Required Field</string>
     <string name="username_error_default">* Required Field</string>
     <string name="ac_six_signup_title">SIGN UP</string>
+    <string name="ac_six_chip_female">Female</string>
+    <string name="ac_six_chip_male">Male</string>
 
     <!--String Use In Toast's -->
     <string name="toast_select_item">Please , Select One Item</string>
@@ -53,7 +55,6 @@
     <string name="alert_successfully_discard">Discard Successfully</string>
     <string name="alert_failed_discard">Discard Failed</string>
     <string name="alert_message_confirmation">Select The Player.</string>
-
 
 
 </resources>

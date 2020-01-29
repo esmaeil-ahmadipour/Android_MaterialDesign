@@ -64,23 +64,52 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ac_six_password_layout">
+<com.google.android.material.chip.Chip
+    android:id="@+id/ac_six_chip_female"
+    android:layout_width="wrap_content"
+    app:chipIcon="@drawable/human_female"
+    app:chipIconTint="@color/colorBlack"
+    app:rippleColor="@color/secondaryColor"
+    android:checkable="true"
+    android:clickable="true"
+    app:closeIconEnabled="true"
+    android:layout_gravity="center"
+    android:text="@string/ac_six_chip_female"
+    app:chipStrokeWidth="1dp"
+    app:chipStrokeColor="@color/colorBlack"
+    android:textColor="@color/colorBlack"
+    android:layout_marginHorizontal="16dp"
+    android:layout_height="wrap_content"/>
+    </LinearLayout>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/ac_six_btn_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/secondaryColor"
+        android:text="@string/ac_six_signup_title"
+        app:cornerRadius="16dp"
         app:icon="@drawable/ic_signup"
         app:iconPadding="8dp"
-        app:rippleColor="@color/primaryDarkColor"
-        android:background="@color/secondaryColor"
-        app:strokeColor="@color/primaryDarkColor"
-        app:strokeWidth="1dp"
-        android:layout_marginTop="32dp"
-        app:cornerRadius="16dp"
-        android:text="@string/ac_six_signup_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ac_six_password_layout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0"
+        app:rippleColor="@color/primaryDarkColor"
+        app:strokeColor="@color/primaryDarkColor"
+        app:strokeWidth="1dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
