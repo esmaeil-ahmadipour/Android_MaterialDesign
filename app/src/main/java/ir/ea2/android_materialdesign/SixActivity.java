@@ -1,7 +1,5 @@
 package ir.ea2.android_materialdesign;
 
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,6 +9,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class SixActivity extends AppCompatActivity {
     private TextInputEditText textInputPassword, textInputUsername;
@@ -21,10 +20,16 @@ public class SixActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_six);
         setViews();
+        setCustomizedView();
         setListeners();
     }
 
-    private void setListeners()  {
+    private void setCustomizedView() {
+        textLayoutUsername.setCounterEnabled(true);
+        textLayoutUsername.setCounterMaxLength(8);
+    }
+
+    private void setListeners() {
         textInputUsername.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -44,9 +49,9 @@ public class SixActivity extends AppCompatActivity {
         textInputUsername.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
+                if (hasFocus) {
                     setInputTextError();
-                }else{
+                } else {
                     unsetInputTextError();
                 }
             }
@@ -57,12 +62,14 @@ public class SixActivity extends AppCompatActivity {
         if (textInputUsername.getText().toString().isEmpty()) {
             textLayoutUsername.setErrorEnabled(true);
             textLayoutUsername.setError(getResources().getString(R.string.username_error_default));
+
         } else {
             unsetInputTextError();
         }
 
     }
-    private void unsetInputTextError(){
+
+    private void unsetInputTextError() {
         textLayoutUsername.setErrorEnabled(false);
     }
 
