@@ -55,6 +55,7 @@
     <string name="alert_successfully_discard">Discard Successfully</string>
     <string name="alert_failed_discard">Discard Failed</string>
     <string name="alert_message_confirmation">Select The Player.</string>
+    <string name="main_rdBtn_activity7">Activity 7</string>
 
 
 </resources>
