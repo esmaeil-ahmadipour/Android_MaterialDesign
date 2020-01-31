@@ -60,6 +60,12 @@
             android:layout_height="wrap_content"
             android:text="@string/main_rdBtn_activity7" />
 
+        <RadioButton
+            android:id="@+id/ac_main_rdBtn_activity8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_rdBtn_activity8" />
+
     </RadioGroup>
 
     <Button

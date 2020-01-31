@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     Context context = this;
     private Button btnShowNotification;
-    RadioButton rdBtnActivity2,rdBtnActivity3,rdBtnActivity4, rdBtnActivity5, rdBtnActivity6, rdBtnActivity7,rdBtnActivity1;
+    RadioButton rdBtnActivity2,rdBtnActivity3,rdBtnActivity4, rdBtnActivity5, rdBtnActivity6, rdBtnActivity7, rdBtnActivity8,rdBtnActivity1;
     private RadioGroup rdGroup;
     private int checkedRadioButton;
 
@@ -66,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(sevenActivity);
                     }
                     break;
+                    case R.id.ac_main_rdBtn_activity8: {
+                        Intent eightActivity = new Intent(MainActivity.this, EightActivity.class);
+                        startActivity(eightActivity);
+                    }
+                    break;
                     default:
                         Toast.makeText(context, "Please , Select One Item!", Toast.LENGTH_SHORT)
                                 .show();
@@ -75,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setViews() {
+        rdBtnActivity8 = findViewById(R.id.ac_main_rdBtn_activity8);
         rdBtnActivity7 = findViewById(R.id.ac_main_rdBtn_activity7);
         rdBtnActivity6 = findViewById(R.id.ac_main_rdBtn_activity6);
         rdBtnActivity5 = findViewById(R.id.ac_main_rdBtn_activity5);
