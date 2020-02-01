@@ -61,6 +61,7 @@
     <string name="option_button"><![CDATA[&#8942;]]></string>
     <string name="menu_item_title_remove">Remove</string>
     <string name="menu_item_title_edit">Edit</string>
+    <string name="menu_item_title_add">Add Item</string>
 
 
 </resources>

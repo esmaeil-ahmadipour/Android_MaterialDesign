@@ -52,10 +52,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MessageViewHolder>
                                         .show();
                                 break;
                             case R.id.remove_menu_item:
-                                Toast.makeText(holder.getView().getContext(), holder.getView()
-                                        .getResources()
-                                        .getString(R.string.menu_item_title_remove) + " : " + position, Toast.LENGTH_SHORT)
-                                        .show();
+                                removeItem(position);
                                 break;
                         }
                         return false;
@@ -81,5 +78,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MessageViewHolder>
     @Override
     public int getItemCount() {
         return messageModelList.size();
+    }
+
+    public void addItem(MessageModel messageModel){
+        messageModelList.add(messageModel);
+        notifyDataSetChanged();
+    }
+    public void removeItem(int position){
+        messageModelList.remove(position);
+        notifyDataSetChanged();
     }
 }
