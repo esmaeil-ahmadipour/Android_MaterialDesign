@@ -10,6 +10,7 @@ import ir.ea2.android_materialdesign.R;
 public class UserViewHolder extends RecyclerView.ViewHolder {
     private ImageView avatar;
     private TextView name;
+    private View view;
 
 
     //the itemView is template layout , by this variable we access to template layout objects
@@ -18,6 +19,7 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         //We access to context by itemView .
         avatar = itemView.findViewById(R.id.item_avatar);
         name = itemView.findViewById(R.id.item_name);
+        view=itemView;
     }
     //Getter for Access Element's Of Template Layout From RecyclerAdapter ;
     public ImageView getAvatar() {
@@ -27,4 +29,9 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
     public TextView getName() {
         return name;
     }
+
+    public View getView() {
+        return view;
+    }
+
 }

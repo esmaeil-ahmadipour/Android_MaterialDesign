@@ -3,6 +3,7 @@ package ir.ea2.android_materialdesign.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,31 +63,43 @@ public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerView.View
         int viewType = holder.getItemViewType();
         switch (viewType) {
             case (TYPE_MESSAGE): {
-                showMessages(position, holder);
+                showMessage(position, holder);
             }
             break;
             case (TYPE_USER): {
-                showUsers(position, holder);
+                showUser(position, holder);
             }
             break;
         }
 
     }
 
-    private void showMessages(int position, RecyclerView.ViewHolder holder) {
+    private void showMessage(final int position, RecyclerView.ViewHolder holder) {
         MessageModel messageModel = (MessageModel) items.get(position);
-        MessageViewHolder messageViewHolder = (MessageViewHolder) holder;
+        final MessageViewHolder messageViewHolder = (MessageViewHolder) holder;
         messageViewHolder.getAvatar().setImageResource(messageModel.getAvatarItem());
         messageViewHolder.getName().setText(messageModel.getNameItem());
         messageViewHolder.getLastMessage().setText(messageModel.getLastMessageItem());
+        messageViewHolder.getView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(messageViewHolder.getView().getContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
-    private void showUsers(int position, RecyclerView.ViewHolder holder) {
+    private void showUser(final int position, RecyclerView.ViewHolder holder) {
         UserModel userModel = (UserModel) items.get(position);
-        UserViewHolder userViewHolder = (UserViewHolder) holder;
+        final UserViewHolder userViewHolder = (UserViewHolder) holder;
         userViewHolder.getAvatar().setImageResource(userModel.getItemAvatar());
         userViewHolder.getName().setText(userModel.getItemName());
+        userViewHolder.getView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(userViewHolder.getView().getContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

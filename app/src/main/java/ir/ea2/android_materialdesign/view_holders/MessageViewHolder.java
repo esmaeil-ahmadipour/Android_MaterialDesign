@@ -12,6 +12,9 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
 private ImageView avatar;
 private TextView name;
 private TextView lastMessage;
+private View view;
+
+
 
     //the itemView is template layout , by this variable we access to template layout objects
     public MessageViewHolder(@NonNull View itemView) {
@@ -20,6 +23,7 @@ private TextView lastMessage;
         avatar = itemView.findViewById(R.id.avatar_item);
         name = itemView.findViewById(R.id.name_item);
         lastMessage = itemView.findViewById(R.id.last_message_item);
+        view = itemView;
     }
 
     //Getter for Access Element's Of Template Layout From RecyclerAdapter ;
@@ -33,5 +37,9 @@ private TextView lastMessage;
 
     public TextView getLastMessage() {
         return lastMessage;
+    }
+
+    public View getView() {
+        return view;
     }
 }
