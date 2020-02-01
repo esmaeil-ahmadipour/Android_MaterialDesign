@@ -13,7 +13,7 @@ private ImageView avatar;
 private TextView name;
 private TextView lastMessage;
 private View view;
-
+private TextView optionView;
 
 
     //the itemView is template layout , by this variable we access to template layout objects
@@ -24,6 +24,7 @@ private View view;
         name = itemView.findViewById(R.id.name_item);
         lastMessage = itemView.findViewById(R.id.last_message_item);
         view = itemView;
+        optionView = view.findViewById(R.id.option_button);
     }
 
     //Getter for Access Element's Of Template Layout From RecyclerAdapter ;
@@ -41,5 +42,9 @@ private View view;
 
     public View getView() {
         return view;
+    }
+
+    public TextView getOptionView() {
+        return optionView;
     }
 }

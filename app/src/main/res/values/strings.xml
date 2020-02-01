@@ -58,6 +58,9 @@
     <string name="main_rdBtn_activity7">Activity 7</string>
     <string name="main_rdBtn_activity8">Activity 8</string>
     <string name="main_rdBtn_activity9">Activity 9</string>
+    <string name="option_button"><![CDATA[&#8942;]]></string>
+    <string name="menu_item_title_remove">Remove</string>
+    <string name="menu_item_title_edit">Edit</string>
 
 
 </resources>
