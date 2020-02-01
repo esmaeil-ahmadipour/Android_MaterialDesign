@@ -2,6 +2,7 @@ package ir.ea2.android_materialdesign;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import ir.ea2.android_materialdesign.adapters.RecyclerViewAdapter;
@@ -52,6 +53,9 @@ public class EightActivity extends AppCompatActivity {
     private void setViews() {
         recyclerView = findViewById(R.id.ac_eight_recycler);
         recyclerViewAdapter = new RecyclerViewAdapter(messageModelList);
+        DividerItemDecoration dividerItemDecoration =new DividerItemDecoration(this ,DividerItemDecoration.VERTICAL);
+        dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.custom_divider));
+        recyclerView.addItemDecoration(dividerItemDecoration);
         // Show RecyclerView by Type: Default Type.
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this ,LinearLayoutManager.VERTICAL , false );
         //Set ShowType to RecyclerView.

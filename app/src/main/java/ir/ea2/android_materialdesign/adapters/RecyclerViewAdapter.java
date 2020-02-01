@@ -31,7 +31,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MessageViewHolder>
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
         holder.getAvatar().setImageResource(messageModelList.get(position).getAvatarItem());
         holder.getName().setText(messageModelList.get(position).getNameItem());
-        setViewBackgroundColor(holder.getView(),position);
+        //Commented for Show Divider .
+//        setViewBackgroundColor(holder.getView(),position);
         holder.getLastMessage().setText(messageModelList.get(position).getLastMessageItem());
     }
 
