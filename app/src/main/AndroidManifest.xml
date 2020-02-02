@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".TenActivity"></activity>
         <activity android:name=".NineActivity" />
-        <activity android:name=".EightActivity" />
+        <activity android:name=".EightActivity" android:theme="@style/MainTheme"/>
         <activity android:name=".SevenActivity" />
         <activity android:name=".SixActivity" />
         <activity android:name=".FiveActivity" />

@@ -23,6 +23,7 @@
     <style name="ErrorTextAppearanceStyle" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/primaryColor</item>
         <item name="android:textSize">16sp</item>
-
+    </style>
+    <style name="MainTheme" parent="AppTheme">
     </style>
 </resources>
