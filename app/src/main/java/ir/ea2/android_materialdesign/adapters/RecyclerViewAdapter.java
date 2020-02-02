@@ -1,5 +1,6 @@
 package ir.ea2.android_materialdesign.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+import ir.ea2.android_materialdesign.DetailEightActivity;
 import ir.ea2.android_materialdesign.R;
 import ir.ea2.android_materialdesign.models.MessageModel;
 import ir.ea2.android_materialdesign.view_holders.MessageViewHolder;
@@ -59,6 +61,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MessageViewHolder>
                     }
                 });
                 popupMenu.show();
+            }
+        });
+        holder.getView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showDetails = new Intent(v.getContext() , DetailEightActivity.class);
+                v.getContext().startActivity(showDetails);
             }
         });
         //Commented for Show Divider .
