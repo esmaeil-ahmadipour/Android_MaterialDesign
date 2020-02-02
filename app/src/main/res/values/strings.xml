@@ -62,6 +62,7 @@
     <string name="menu_item_title_remove">Remove</string>
     <string name="menu_item_title_edit">Edit</string>
     <string name="menu_item_title_add">Add Item</string>
+    <string name="main_rdBtn_activity10">Activity 10</string>
 
 
 </resources>
