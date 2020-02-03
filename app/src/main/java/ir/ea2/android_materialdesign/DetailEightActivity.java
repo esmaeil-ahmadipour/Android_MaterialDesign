@@ -15,6 +15,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import ir.ea2.android_materialdesign.models.MessageModel;
@@ -30,6 +31,7 @@ public class DetailEightActivity extends AppCompatActivity {
     private CollapsingToolbarLayout.LayoutParams userLayoutParams;
     private LinearLayout.LayoutParams avatarLayoutParams;
     private SwitchCompat switchCompat;
+    private AppCompatCheckBox compatCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,19 @@ public class DetailEightActivity extends AppCompatActivity {
         setupAppbar();
         setupViews();
         setupSwitch();
+        setupCheckbox();
         bindData();
+    }
+
+    private void setupCheckbox() {
+        compatCheckBox = findViewById(R.id.ac_detailEight_checkbox);
+        compatCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Toast.makeText(DetailEightActivity.this, "Checkbox : " +( isChecked?"Is Checked":"Not Check"), Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
     }
 
     private void setupSwitch() {
@@ -47,7 +61,8 @@ public class DetailEightActivity extends AppCompatActivity {
         switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Toast.makeText(DetailEightActivity.this, "Switch is: "+isChecked, Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetailEightActivity.this, "Switch is: " + isChecked, Toast.LENGTH_SHORT)
+                        .show();
             }
         });
     }
