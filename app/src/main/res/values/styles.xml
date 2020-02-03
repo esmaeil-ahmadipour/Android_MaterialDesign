@@ -26,4 +26,8 @@
     </style>
     <style name="MainTheme" parent="AppTheme">
     </style>
+    <style name="FABTheme" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/colorBlack</item>
+        <item name="tint">@color/primaryColor</item>
+    </style>
 </resources>
