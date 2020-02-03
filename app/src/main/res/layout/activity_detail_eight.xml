@@ -38,8 +38,7 @@
                 <ImageView
                     android:id="@+id/ac_detailEight_avatar"
                     android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/visitcard"/>
+                    android:layout_height="64dp"/>
 
                 <TextView
                     android:id="@+id/ac_detailEight_name"
@@ -47,7 +46,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="8dp"
-                    android:text="@string/app_title"
                     android:textSize="16sp" />
 
             </LinearLayout>

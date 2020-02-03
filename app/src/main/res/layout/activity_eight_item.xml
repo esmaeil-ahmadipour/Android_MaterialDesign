@@ -25,7 +25,7 @@
             android:layout_marginStart="8dp"
             android:text="@string/app_title"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/avatar_item"
+            app:layout_constraintStart_toEndOf="@id/avatar_item"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:text="@string/app_title"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/avatar_item" />
+            app:layout_constraintStart_toEndOf="@id/avatar_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

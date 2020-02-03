@@ -35,6 +35,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MessageViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull final MessageViewHolder holder, final int position) {
+        final MessageModel messageModel = (MessageModel) messageModelList.get(position);
         holder.getAvatar().setImageResource(messageModelList.get(position).getAvatarItem());
         holder.getName().setText(messageModelList.get(position).getNameItem());
         holder.getOptionView().setOnClickListener(new View.OnClickListener() {
@@ -66,7 +67,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MessageViewHolder>
         holder.getView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showDetails = new Intent(v.getContext() , DetailEightActivity.class);
+                Intent showDetails = new Intent(v.getContext(), DetailEightActivity.class);
+                showDetails.putExtra(DetailEightActivity.USER_KEY, messageModel);
                 v.getContext().startActivity(showDetails);
             }
         });
@@ -89,11 +91,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<MessageViewHolder>
         return messageModelList.size();
     }
 
-    public void addItem(MessageModel messageModel){
+    public void addItem(MessageModel messageModel) {
         messageModelList.add(messageModel);
         notifyDataSetChanged();
     }
-    public void removeItem(int position){
+    public void removeItem(int position) {
         messageModelList.remove(position);
         notifyDataSetChanged();
     }

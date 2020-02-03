@@ -1,6 +1,8 @@
 package ir.ea2.android_materialdesign.models;
 
-public class MessageModel {
+import java.io.Serializable;
+
+public class MessageModel implements Serializable {
     private int avatarItem;
     private String nameItem;
     private String lastMessageItem;
