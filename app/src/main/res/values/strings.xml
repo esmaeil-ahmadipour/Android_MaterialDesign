@@ -46,6 +46,7 @@
     <string name="ac_six_signup_title">SIGN UP</string>
     <string name="ac_six_chip_female">Female</string>
     <string name="ac_six_chip_male">Male</string>
+    <string name="ac_detailEight_switch_title">Turn ON/OFF</string>
 
     <!--String Use In Toast's -->
     <string name="toast_select_item">Please , Select One Item</string>
@@ -63,6 +64,7 @@
     <string name="menu_item_title_edit">Edit</string>
     <string name="menu_item_title_add">Add Item</string>
     <string name="main_rdBtn_activity10">Activity 10</string>
+    <string name="ac_detailEight_checkbox_title">CheckBox</string>
 
 
 </resources>
